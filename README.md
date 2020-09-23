@@ -4,7 +4,6 @@ It provides the keystone's:
 
 * minimum available item level upon completion.
 * weekly chest reward item level.
- 
 This addon was originally called [MythicPlusLoot](https://wow.curseforge.com/projects/mythicplusloo) by [Artanisx](https://wow.curseforge.com/members/Artanisx).
 
 Credit goes to them, I merely updated it and added Residuum amounts.
