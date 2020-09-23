@@ -4,9 +4,8 @@ This is a small addon that adds information about the loot one can acquire from 
 
 It provides the keystone's:
 
-minimum available item level upon completion.
-weekly chest reward item level.
-weekly chest residuum amount rewarded up to level 25.
+* minimum available item level upon completion.
+* weekly chest reward item level.
  
 
 This addon was originally called MythicPlusLoot by Artanisx.
