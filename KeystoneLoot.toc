@@ -1,7 +1,7 @@
-## Interface: 80300
+## Interface: 90001
 ## Title: Keystone Loot
-## Version: 2.2.2
-## Notes: |cff00ff00Mythic Plus Loot item level for Keystone, Weekly Chest, and Residuum amount.
+## Version: 2.3.0
+## Notes: |cff00ff00Mythic Plus Loot item level for Keystone and Weekly Chest.
 ## Author: Artanis & DrkGreyHawk
 
 embeds.xml
