@@ -1,7 +1,7 @@
-MythicPlusLoot = LibStub("AceAddon-3.0"):NewAddon("MythicPlusLoot",
-                                                  "AceConsole-3.0",
-                                                  "AceEvent-3.0");
-local L = LibStub("AceLocale-3.0"):GetLocale("MythicPlusLoot")
+KeystoneLoot = LibStub("AceAddon-3.0"):NewAddon("KeystoneLoot",
+                                                "AceConsole-3.0",
+                                                "AceEvent-3.0");
+local L = LibStub("AceLocale-3.0"):GetLocale("KeystoneLoot")
 
 local lineAdded = false
 
@@ -124,9 +124,6 @@ local function SetHyperlink_Hook(self, hyperlink, text, button)
         ItemRefTooltip:AddLine(
             "|cffff00ff" .. L["Weekly Chest Item Level: "] .. wlvl .. "|r", 1,
             1, 1, true) -- 551A8B   --ff00ff 
-        ItemRefTooltip:AddLine("|cffff00ff" .. L["Weekly Residuum Amount: "] ..
-                                   alvl .. "|r", 1, 1, 1, true) -- 551A8B   --ff00ff
-        -- ItemRefTooltip:AddLine("|cffff00ff" .. FULLINFO .."|r", 1,1,1,true)
         ItemRefTooltip:Show()
         -- if not lineAdded then				
         --	ItemRefTooltip:AddLine("|cffff00ff" .. L["Loot Item Level: "] .. ilvl .. "+" .. "|r", 1,1,1,true) --551A8B   --ff00ff 
@@ -188,21 +185,21 @@ function MythicWeeklyLootItemLevel(mlvl)
     end
 end
 
-function MythicPlusLoot:OnInitialize()
+function KeystoneLoot:OnInitialize()
     -- Called when the addon is loaded
 
     -- Print a message to the chat frame
-    self:Print(L["MythicPlusLoot: Loaded"])
+    self:Print(L["KeystoneLoot: Loaded"])
 end
 
-function MythicPlusLoot:OnEnable()
+function KeystoneLoot:OnEnable()
     -- Called when the addon is enabled
 
     -- Print a message to the chat frame		
-    self:Print(L["MythicPlusLoot: Enabled"])
+    self:Print(L["KeystoneLoot: Enabled"])
 end
 
-function MythicPlusLoot:OnDisable()
+function KeystoneLoot:OnDisable()
     -- Called when the addon is disabled
-    self:Print(L["MythicPlusLoot: Disabled"])
+    self:Print(L["KeystoneLoot: Disabled"])
 end
