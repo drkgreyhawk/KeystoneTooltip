@@ -7,5 +7,6 @@
 embeds.xml
 
 enUS.lua
+ruRU.lua
 
 KeystoneLoot.lua

@@ -1,6 +1,6 @@
 KeystoneLoot = LibStub("AceAddon-3.0"):NewAddon("KeystoneLoot",
-                                                  "AceConsole-3.0",
-                                                  "AceEvent-3.0");
+                                                "AceConsole-3.0",
+                                                "AceEvent-3.0");
 local L = LibStub("AceLocale-3.0"):GetLocale("KeystoneLoot")
 
 local lineAdded = false
@@ -124,9 +124,6 @@ local function SetHyperlink_Hook(self, hyperlink, text, button)
         ItemRefTooltip:AddLine(
             "|cffff00ff" .. L["Weekly Chest Item Level: "] .. wlvl .. "|r", 1,
             1, 1, true) -- 551A8B   --ff00ff 
-        ItemRefTooltip:AddLine("|cffff00ff" .. L["Weekly Residuum Amount: "] ..
-                                   alvl .. "|r", 1, 1, 1, true) -- 551A8B   --ff00ff
-        -- ItemRefTooltip:AddLine("|cffff00ff" .. FULLINFO .."|r", 1,1,1,true)
         ItemRefTooltip:Show()
         -- if not lineAdded then				
         --	ItemRefTooltip:AddLine("|cffff00ff" .. L["Loot Item Level: "] .. ilvl .. "+" .. "|r", 1,1,1,true) --551A8B   --ff00ff 
