@@ -1,9 +1,9 @@
-local L = LibStub("AceLocale-3.0"):NewLocale("MythicPlusLoot", "enUS", true)
+local L = LibStub("AceLocale-3.0"):NewLocale("KeystoneLoot", "enUS", true)
 
-L["MythicPlusLoot: Loaded"] = true
-L["MythicPlusLoot: Enabled"] = true
-L["MythicPlusLoot: Disabled"] = true
-L["MythicPlusLoot does not have any function command."] = true
+L["KeystoneLoot: Loaded"] = true
+L["KeystoneLoot: Enabled"] = true
+L["KeystoneLoot: Disabled"] = true
+L["KeystoneLoot does not have any function command."] = true
 
 L["This shows the level of the item you'll find in this week's chest."] = true
 L["Weekly Chest Reward"] = true
