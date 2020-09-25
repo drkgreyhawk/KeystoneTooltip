@@ -1,12 +1,10 @@
 ## Interface: 90001
 ## Title: Keystone Loot
-## Version: 2.3.0
+## Version: 2.3.1
 ## Notes: |cff00ff00Mythic Plus Loot item level for Keystone and Weekly Chest.
 ## Author: Artanis & DrkGreyHawk
 
 embeds.xml
-
-enUS.lua
-ruRU.lua
+Locales\Locales.xml
 
 KeystoneLoot.lua

@@ -1,4 +1,4 @@
-local L = LibStub("AceLocale-3.0"):NewLocale("KeystoneLoot", "ruRU", true)
+local L = LibStub("AceLocale-3.0"):NewLocale("KeystoneLoot", "ruRU")
 
 L["KeystoneLoot: Loaded"] = "KeystoneLoot: Загружен"
 L["KeystoneLoot: Enabled"] = "KeystoneLoot: Включен"
