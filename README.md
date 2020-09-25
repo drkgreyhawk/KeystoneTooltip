@@ -9,4 +9,5 @@ This addon was originally called [MythicPlusLoot](https://wow.curseforge.com/pro
 Credit goes to them, I merely updated it and added Residuum amounts.
 
 Localization Credits
+
 Russian: [Hubbotu](https://www.curseforge.com/members/hubbotu)
