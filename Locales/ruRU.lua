@@ -1,5 +1,7 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("KeystoneLoot", "ruRU")
 
+if L then
+
 L["KeystoneLoot: Loaded"] = "KeystoneLoot: Загружен"
 L["KeystoneLoot: Enabled"] = "KeystoneLoot: Включен"
 L["KeystoneLoot: Disabled"] = "KeystoneLoot: Отключен"
@@ -10,3 +12,5 @@ L["Weekly Chest Reward"] = "Еженедельная награда за сун�
 
 L["Loot Item Level: "] = "Уровень предмета добычи: "
 L["Weekly Chest Item Level: "] = "Еженедельный сундук Уровень предмета: "
+
+end

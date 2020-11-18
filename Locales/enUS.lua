@@ -1,5 +1,7 @@
 local L = LibStub("AceLocale-3.0"):NewLocale("KeystoneLoot", "enUS")
 
+if L then
+
 L["KeystoneLoot: Loaded"] = true
 L["KeystoneLoot: Enabled"] = true
 L["KeystoneLoot: Disabled"] = true
@@ -10,3 +12,5 @@ L["Weekly Chest Reward"] = true
 
 L["Loot Item Level: "] = true
 L["Weekly Chest Item Level: "] = true
+
+end
