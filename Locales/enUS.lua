@@ -1,4 +1,4 @@
-local L = LibStub("AceLocale-3.0"):NewLocale("KeystoneLoot", "enUS")
+local L = LibStub("AceLocale-3.0"):NewLocale("KeystoneLoot", "enUS", true)
 
 if L then
 
