@@ -1,7 +1,7 @@
 KeystoneLoot = LibStub("AceAddon-3.0"):NewAddon("KeystoneLoot",
                                                 "AceConsole-3.0",
                                                 "AceEvent-3.0");
-local L = LibStub("AceLocale-3.0"):GetLocale("KeystoneLoot")
+local L = LibStub("AceLocale-3.0"):GetLocale("KeystoneLoot", true)
 
 local lineAdded = false
 
