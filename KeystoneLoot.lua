@@ -151,7 +151,7 @@ function MythicLootItemLevel(mlvl)
     elseif (mlvl == "7" or mlvl == "8" or mlvl == "9") then
         return "200"
     elseif (mlvl == "10" or mlvl == "11") then
-        return "204"
+        return "203"
     elseif (mlvl == "12" or mlvl == "13" or mlvl == "14") then
         return "207"
     elseif (mlvl >= "15") then
