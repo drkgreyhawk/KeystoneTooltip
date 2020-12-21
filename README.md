@@ -7,7 +7,3 @@ It provides the keystone's:
 This addon was originally called [MythicPlusLoot](https://wow.curseforge.com/projects/mythicplusloot) by [Artanisx](https://wow.curseforge.com/members/Artanisx).
 
 Credit goes to them, I merely updated it and added Residuum amounts.
-
-Localization Credits
-
-Russian: [Hubbotu](https://www.curseforge.com/members/hubbotu)
