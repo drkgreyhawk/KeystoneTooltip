@@ -1,6 +1,6 @@
 ## Interface: 90002
 ## Title: Keystone Loot
-## Version: 2.3.4
+## Version: 2.3.5
 ## Notes: |cff00ff00Mythic Plus Loot item level for Keystone and Weekly Chest.
 ## Author: Artanis & DrkGreyHawk
 
