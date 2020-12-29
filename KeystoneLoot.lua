@@ -1,6 +1,4 @@
-KeystoneLoot = LibStub("AceAddon-3.0"):NewAddon("KeystoneLoot",
-                                                "AceConsole-3.0",
-                                                "AceEvent-3.0");
+KeystoneLoot = LibStub("AceAddon-3.0"):NewAddon("KeystoneLoot", "AceConsole-3.0", "AceEvent-3.0");
 local L = LibStub("AceLocale-3.0"):GetLocale("KeystoneLoot", true)
 
 local lineAdded = false
@@ -13,67 +11,10 @@ frame:RegisterEvent("ADDON_LOADED");
 frame:SetScript("OnEvent", function(self, event, ...)
     if (event == "ADDON_LOADED") then
         local addon = ...
-
-        -- if (addon == "Blizzard_ChallengesUI") then		
-
-        -- local iLvlFrm = CreateFrame("Frame","LootLevel",ChallengesModeWeeklyBest);
-        -- iLvlFrm:SetWidth(100);
-        -- iLvlFrm:SetHeight(50);
-        -- iLvlFrm:SetPoint("CENTER",-128,-37); 
-
-        -- sdm_SetTooltip(iLvlFrm, L["This shows the level of the item you'll find in this week's chest."]);
-
-        -- iLvlFrm.text = iLvlFrm:CreateFontString(nil, "MEDIUM", "GameFontHighlightLarge");
-        -- iLvlFrm.text:SetAllPoints(iLvlFrm);
-        -- iLvlFrm.text:SetFont("Fonts\\FRIZQT__.TTF",30);
-        -- iLvlFrm.text:SetPoint("CENTER",0,0);
-        -- iLvlFrm.text:SetTextColor(1,0,1,1);
-        -- iLvlFrm:SetScript("OnUpdate",function(self,elaps)		
-        -- self.time = (self.time or 1)-elaps
-
-        -- if (self.time > 0) then
-        -- return
-        -- end
-
-        -- while (self.time <= 0) do				
-        -- if (ChallengesModeWeeklyBest) then                    
-        -- numScreen = ChallengesModeWeeklyBest.Child.Level:GetText();				
-
-        -- self.time = self.time+1;
-
-        -- self.text:SetText(MythicWeeklyLootItemLevel(numScreen));	
-        ----self.text:SetText(numScreen);
-        -- self:SetScript("OnUpdate",nil);
-        -- end					
-        -- end
-        -- end)		
-        -- end
     end
 end)
 
 -- Tooltip functions
-function sdm_OnEnterTippedButton(self)
-    GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-    -- GameTooltip:SetText(self.tooltipText, nil, nil, nil, nil, true)
-
-    GameTooltip:AddLine("|cffff00ff" .. L["Weekly Chest Reward"] .. "|r")
-    GameTooltip:AddLine("|cff00ff00" .. self.tooltipText .. "|r")
-    GameTooltip:Show()
-end
-
-function sdm_OnLeaveTippedButton() GameTooltip_Hide() end
-
--- if text is provided, sets up the button to show a tooltip when moused over. Otherwise, removes the tooltip.
-function sdm_SetTooltip(self, text)
-    if text then
-        self.tooltipText = text
-        self:SetScript("OnEnter", sdm_OnEnterTippedButton)
-        self:SetScript("OnLeave", sdm_OnLeaveTippedButton)
-    else
-        self:SetScript("OnEnter", nil)
-        self:SetScript("OnLeave", nil)
-    end
-end
 
 local function OnTooltipSetItem(tooltip, ...)
     name, link = GameTooltip:GetItem()
@@ -83,23 +24,16 @@ local function OnTooltipSetItem(tooltip, ...)
 
     for itemLink in link:gmatch("|%x+|Hkeystone:.-|h.-|h|r") do
         local itemString = string.match(itemLink, "keystone[%-?%d:]+")
-        -- local itemName = string.match(itemLink, "\124h.-\124h"):gsub("%[","%%[)("):gsub("%]",")(%%]")
-        -- local _,itemid,_,_,_,_,_,_,_,_,_,flags,_,_,mapid,mlvl,modifier1,modifier2,modifier3 = strsplit(":", itemString)
-        -- keystone:234:12:1:6:3:9
         local mlvl = select(4, strsplit(":", itemString))
-
         local ilvl = MythicLootItemLevel(mlvl)
         local wlvl = MythicWeeklyLootItemLevel(mlvl)
+        local icolor = "|cff00ccff"
 
-        -- if (itemid == "138019") then -- Mythic Keystone
         if not lineAdded then
-            tooltip:AddLine("|cffff00ff" .. L["Loot Item Level: "] .. ilvl ..
-                                "|r") -- 551A8B   --ff00ff 
-            tooltip:AddLine("|cffff00ff" .. L["Weekly Chest Item Level: "] ..
-                                wlvl .. "|r") -- 551A8B   --ff00ff
+            tooltip:AddLine("|cffffffff" .. L["Dungeon Reward: "] .. icolor .. ilvl .. "|r")
+            tooltip:AddLine("|cffffffff" .. L["Weekly Reward: "] .. icolor .. wlvl .. "|r")
             lineAdded = true
         end
-        -- end
     end
 end
 
@@ -107,31 +41,17 @@ local function OnTooltipCleared(tooltip, ...) lineAdded = false end
 
 -- ITEM REF Tooltip
 local function SetHyperlink_Hook(self, hyperlink, text, button)
-    -- local _,itemid,_,_,_,_,_,_,_,_,_,flags,_,_,mapid,mlvl,modifier1,modifier2,modifier3 = strsplit(":", hyperlink)
     local itemString = string.match(hyperlink, "keystone[%-?%d:]+")
     if itemString == nil or itemString == "" then return end
     if strsplit(":", itemString) == "keystone" then
         local mlvl = select(4, strsplit(":", hyperlink))
-
         local ilvl = MythicLootItemLevel(mlvl)
         local wlvl = MythicWeeklyLootItemLevel(mlvl)
-        -- local FULLINFO = itemString
+        local icolor = "|cff00ccff"
 
-        -- if (itemid == "138019") then -- Mythic Keystone			
-        ItemRefTooltip:AddLine(
-            "|cffff00ff" .. L["Loot Item Level: "] .. ilvl .. "+" .. "|r", 1, 1,
-            1, true) -- 551A8B   --ff00ff 
-        ItemRefTooltip:AddLine(
-            "|cffff00ff" .. L["Weekly Chest Item Level: "] .. wlvl .. "|r", 1,
-            1, 1, true) -- 551A8B   --ff00ff 
+        ItemRefTooltip:AddLine("|cffffffff" .. L["Dungeon Reward: "] .. icolor .. ilvl .. "|r", 1, 1, 1, true)
+        ItemRefTooltip:AddLine("|cffffffff" .. L["Weekly Reward: "] .. icolor .. wlvl .. "|r", 1, 1, 1, true)
         ItemRefTooltip:Show()
-        -- if not lineAdded then				
-        --	ItemRefTooltip:AddLine("|cffff00ff" .. L["Loot Item Level: "] .. ilvl .. "+" .. "|r", 1,1,1,true) --551A8B   --ff00ff 
-        --	ItemRefTooltip:AddLine("|cffff00ff" .. L["Weekly Chest Item Level: "] .. wlvl .."|r", 1,1,1,true) --551A8B   --ff00ff 
-        --	ItemRefTooltip:Show()
-        -- lineAdded = true
-        -- end		
-        -- end
     end
 end
 
@@ -139,6 +59,8 @@ GameTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
 GameTooltip:HookScript("OnTooltipCleared", OnTooltipCleared)
 hooksecurefunc("ChatFrame_OnHyperlinkShow", SetHyperlink_Hook)
 
+
+-- Dungeon Item Levels
 function MythicLootItemLevel(mlvl)
     if (mlvl == "2") then
         return "187"
@@ -161,6 +83,7 @@ function MythicLootItemLevel(mlvl)
     end
 end
 
+-- Weekly Reward Item Levels
 function MythicWeeklyLootItemLevel(mlvl)
     if (mlvl == "2") then
         return "200"
@@ -183,23 +106,4 @@ function MythicWeeklyLootItemLevel(mlvl)
     else
         return ""
     end
-end
-
-function KeystoneLoot:OnInitialize()
-    -- Called when the addon is loaded
-
-    -- Print a message to the chat frame
-    self:Print(L["KeystoneLoot: Loaded"])
-end
-
-function KeystoneLoot:OnEnable()
-    -- Called when the addon is enabled
-
-    -- Print a message to the chat frame		
-    self:Print(L["KeystoneLoot: Enabled"])
-end
-
-function KeystoneLoot:OnDisable()
-    -- Called when the addon is disabled
-    self:Print(L["KeystoneLoot: Disabled"])
 end
