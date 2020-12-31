@@ -85,7 +85,6 @@ local function OnHyperlinkLeave(frame, ...)
 end
 
 local _G = getfenv(0)
-print("show do something")
 for i=1, NUM_CHAT_WINDOWS do
     local frame = _G["ChatFrame"..i]
 	onLinkEnterOriginalCallback[frame] = frame:GetScript("OnHyperlinkEnter")
