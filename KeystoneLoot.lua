@@ -14,6 +14,8 @@ frame:SetScript("OnEvent", function(self, event, ...)
     end
 end)
 
+local onLinkEnterOriginalCallback, onLinkLeaveOriginalCallback = {}, {}
+
 -- Tooltip functions
 
 local function OnTooltipSetItem(tooltip, ...)
@@ -59,6 +61,38 @@ GameTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
 GameTooltip:HookScript("OnTooltipCleared", OnTooltipCleared)
 hooksecurefunc("ChatFrame_OnHyperlinkShow", SetHyperlink_Hook)
 
+local function OnHyperlinkEnter(frame, link, ...)
+    local itemString = string.match(link, "keystone[%-?%d:]+")
+    if itemString == nil or itemString == "" then return end
+    if strsplit(":", itemString) == "keystone" then
+        local mlvl = select(4, strsplit(":", itemString))
+        local ilvl = MythicLootItemLevel(mlvl)
+        local wlvl = MythicWeeklyLootItemLevel(mlvl)
+        local icolor = "|cff00ccff"
+        GameTooltip:SetOwner(frame, "ANCHOR_TOPLEFT")
+        GameTooltip:SetHyperlink(link)
+        GameTooltip:AddLine("|cffffffff" .. L["Dungeon Reward: "] .. icolor .. ilvl .. "|r", 1, 1, 1, true)
+        GameTooltip:AddLine("|cffffffff" .. L["Weekly Reward: "] .. icolor .. wlvl .. "|r", 1, 1, 1, true)
+        GameTooltip:Show()    
+    end
+
+	if onLinkEnterOriginalCallback[frame] then return onLinkEnterOriginalCallback[frame](frame, link, ...) end
+end
+
+local function OnHyperlinkLeave(frame, ...)
+	GameTooltip:Hide()
+	if onLinkLeaveOriginalCallback[frame] then return onLinkLeaveOriginalCallback[frame](frame, ...) end
+end
+
+local _G = getfenv(0)
+print("show do something")
+for i=1, NUM_CHAT_WINDOWS do
+    local frame = _G["ChatFrame"..i]
+	onLinkEnterOriginalCallback[frame] = frame:GetScript("OnHyperlinkEnter")
+	frame:SetScript("OnHyperlinkEnter", OnHyperlinkEnter)
+    onLinkLeaveOriginalCallback[frame] = frame:GetScript("OnHyperlinkLeave")
+	frame:SetScript("OnHyperlinkLeave", OnHyperlinkLeave)
+end
 
 -- Dungeon Item Levels
 function MythicLootItemLevel(mlvl)
