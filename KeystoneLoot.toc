@@ -1,4 +1,4 @@
-## Interface: 90002
+## Interface: 90100
 ## Title: Keystone Loot
 ## Version: 2.8.0
 ## Notes: |cff00ff00Mythic Plus Loot item level for Keystone and Weekly Chest.
