@@ -7,10 +7,10 @@ L["KeystoneLoot: Enabled"] = "KeystoneLoot: Включен"
 L["KeystoneLoot: Disabled"] = "KeystoneLoot: Отключен"
 L["KeystoneLoot does not have any function command."] = "KeystoneLoot не имеет функциональной команды."
 
-L["This shows the level of the item you'll find in this week's chest."] = "Показывает уровень предмета, который вы найдете в сундуке на этой неделе."
+L["This shows the level of the item you'll find in this week's chest."] = "Показывает уровень предмета, который Вы найдете в сундуке на этой неделе."
 L["Weekly Chest Reward"] = "Еженедельная награда за сундук"
 
 L["Loot Item Level: "] = "Уровень предмета добычи: "
-L["Weekly Chest Item Level: "] = "Еженедельный сундук Уровень предмета: "
+L["Weekly Chest Item Level: "] = "Еженедельный сундук, уровень предмета: "
 
 end
