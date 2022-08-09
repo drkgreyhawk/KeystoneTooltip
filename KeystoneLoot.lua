@@ -141,33 +141,33 @@ hooksecurefunc("ChatFrame_OnHyperlinkShow", SetHyperlink_Hook)
 
 function MythicLootItemLevel(mlvl)
     if (mlvl == "2") then
-        return "236"
+        return "262"
     elseif (mlvl == "3") then
-        return "239"
+        return "265"
     elseif (mlvl == "4") then
-        return "242"
+        return "268"
     elseif (mlvl == "5") then
-        return "246"
+        return "272"
     elseif (mlvl == "6") then
-        return "249"
+        return "275"
     elseif (mlvl == "7") then
-        return "249"
+        return "275"
     elseif (mlvl == "8") then
-        return "252"
+        return "278"
     elseif (mlvl == "9") then
-        return "252"
+        return "278"
     elseif (mlvl == "10") then
-        return "255"
+        return "281"
     elseif (mlvl == "11") then
-        return "255"
+        return "281"
     elseif (mlvl == "12") then
-        return "259"
+        return "285"
     elseif (mlvl == "13") then
-        return "259"
+        return "285"
     elseif (mlvl == "14") then
-        return "262"
+        return "288"
     elseif (mlvl >= "15") then
-        return "262"
+        return "288"
     else
         return ""
     end
@@ -175,53 +175,34 @@ end
 
 function MythicWeeklyLootItemLevel(mlvl)
     if (mlvl == "2") then
-        return "252"
-    elseif (mlvl == "3") then
-        return "252"
-    elseif (mlvl == "4") then
-        return "252"
-    elseif (mlvl == "5") then
-        return "255"
-    elseif (mlvl == "6") then
-        return "255"
-    elseif (mlvl == "7") then
-        return "259"
-    elseif (mlvl == "8") then
-        return "262"
-    elseif (mlvl == "9") then
-        return "262"
-    elseif (mlvl == "10") then
-        return "265"
-    elseif (mlvl == "11") then
-        return "268"
-    elseif (mlvl == "12") then
-        return "272"
-    elseif (mlvl == "13") then
-        return "272"
-    elseif (mlvl == "14") then
-        return "275"
-    elseif (mlvl >= "15") then
         return "278"
+    elseif (mlvl == "3") then
+        return "278"
+    elseif (mlvl == "4") then
+        return "278"
+    elseif (mlvl == "5") then
+        return "281"
+    elseif (mlvl == "6") then
+        return "281"
+    elseif (mlvl == "7") then
+        return "285"
+    elseif (mlvl == "8") then
+        return "288"
+    elseif (mlvl == "9") then
+        return "288"
+    elseif (mlvl == "10") then
+        return "291"
+    elseif (mlvl == "11") then
+        return "294"
+    elseif (mlvl == "12") then
+        return "298"
+    elseif (mlvl == "13") then
+        return "298"
+    elseif (mlvl == "14") then
+        return "301"
+    elseif (mlvl >= "15") then
+        return "304"
     else
         return ""
     end
-end
-
-function KeystoneLoot:OnInitialize()
-    -- Called when the addon is loaded
-
-    -- Print a message to the chat frame
-    self:Print(L["KeystoneLoot: Loaded"])
-end
-
-function KeystoneLoot:OnEnable()
-    -- Called when the addon is enabled
-
-    -- Print a message to the chat frame		
-    self:Print(L["KeystoneLoot: Enabled"])
-end
-
-function KeystoneLoot:OnDisable()
-    -- Called when the addon is disabled
-    self:Print(L["KeystoneLoot: Disabled"])
 end
