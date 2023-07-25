@@ -1,6 +1,5 @@
-KeystoneLoot = LibStub("AceAddon-3.0"):NewAddon("KeystoneLoot",
-                                                "AceConsole-3.0",
-                                                "AceEvent-3.0");
+KeystoneLoot = LibStub("AceAddon-3.0"):NewAddon("KeystoneLoot", "AceConsole-3.0", "AceEvent-3.0");
+
 local L = LibStub("AceLocale-3.0"):GetLocale("KeystoneLoot", true)
 
 local lineAdded = false
@@ -93,10 +92,8 @@ local function OnTooltipSetItem(tooltip, ...)
 
         -- if (itemid == "138019") then -- Mythic Keystone
         if not lineAdded then
-            tooltip:AddLine("|cffff00ff" .. L["Loot Item Level: "] .. ilvl ..
-                                "|r") -- 551A8B   --ff00ff 
-            tooltip:AddLine("|cffff00ff" .. L["Weekly Chest Item Level: "] ..
-                                wlvl .. "|r") -- 551A8B   --ff00ff
+            tooltip:AddLine("|cffff00ff" .. L["Loot Item Level: "] .. ilvl .. "|r") -- 551A8B   --ff00ff 
+            tooltip:AddLine("|cffff00ff" .. L["Weekly Chest Item Level: "] .. wlvl .. "|r") -- 551A8B   --ff00ff
             lineAdded = true
         end
         -- end
@@ -119,25 +116,17 @@ local function SetHyperlink_Hook(self, hyperlink, text, button)
 
         -- if (itemid == "138019") then -- Mythic Keystone			
         ItemRefTooltip:AddLine(
-            "|cffff00ff" .. L["Loot Item Level: "] .. ilvl .. "+" .. "|r", 1, 1,
-            1, true) -- 551A8B   --ff00ff 
+            "|cffff00ff" .. L["Loot Item Level: "] .. ilvl .. "+" .. "|r", 1, 1, 1, true)
         ItemRefTooltip:AddLine(
-            "|cffff00ff" .. L["Weekly Chest Item Level: "] .. wlvl .. "|r", 1,
-            1, 1, true) -- 551A8B   --ff00ff 
+            "|cffff00ff" .. L["Weekly Chest Item Level: "] .. wlvl .. "|r", 1, 1, 1, true)
         ItemRefTooltip:Show()
-        -- if not lineAdded then				
-        --	ItemRefTooltip:AddLine("|cffff00ff" .. L["Loot Item Level: "] .. ilvl .. "+" .. "|r", 1,1,1,true) --551A8B   --ff00ff 
-        --	ItemRefTooltip:AddLine("|cffff00ff" .. L["Weekly Chest Item Level: "] .. wlvl .."|r", 1,1,1,true) --551A8B   --ff00ff 
-        --	ItemRefTooltip:Show()
-        -- lineAdded = true
-        -- end		
-        -- end
     end
 end
 
-GameTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
+-- GameTooltip:HookScript("OnTooltipSetItem", OnTooltipSetItem)
 GameTooltip:HookScript("OnTooltipCleared", OnTooltipCleared)
 hooksecurefunc("ChatFrame_OnHyperlinkShow", SetHyperlink_Hook)
+TooltipDataProcessor.AddTooltipPostCall(Enum.TooltipDataType.Item, OnTooltipSetItem)
 
 function MythicLootItemLevel(mlvl)
     if (mlvl == "2") then
