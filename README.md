@@ -3,4 +3,4 @@ This is a small addon that adds information about the loot one can acquire from 
 It provides the keystone's:
 
 * Dungeon reward item level.
-* Weekly vault reward item level.
+* weekly vault reward item level.

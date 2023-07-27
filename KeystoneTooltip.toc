@@ -1,10 +1,7 @@
 ## Interface: 100105
 ## Title: Keystone Tooltip
-## Version: 3.0.0
+## Version: 3.1.0
 ## Notes: |cff00ff00Adds a tooltip with item level rewards for keystones.
 ## Author: DrkGreyHawk
-
-embeds.xml
-Locales\Locales.xml
 
 KeystoneTooltip.lua
