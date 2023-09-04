@@ -6,6 +6,14 @@ local dungeon_rewards = { 402, 405, 405, 408, 408, 411, 411, 415, 415, 418, 418,
 local vault_rewards = { 415, 418, 421, 421, 424, 424, 428, 428, 431, 431, 434, 434, 437, 437, 441, 441, 444, 444, 447 }
 
 
+SLASH_KEYSTONETOOLTIP1 = "/kt"
+
+SlashCmdList["KEYSTONETOOLTIP"] = function(msg)
+    print(dungeon_reward_string .. GetDungeonReward(tonumber(msg)))
+    print(vault_reward_string .. GetVaultReward(tonumber(msg)))
+end
+
+
 local frame = CreateFrame("Frame");
 frame:RegisterEvent("ADDON_LOADED");
 frame:SetScript("OnEvent", function(self, event, ...)
@@ -63,19 +71,27 @@ end
 
 
 function GetDungeonReward(mlvl)
-    if mlvl > 20 then
-        return tostring(dungeon_rewards[#dungeon_rewards])
+    if mlvl == nil or mlvl < 2 then
+        return "Unknown Key Level"
     else
-        return tostring(dungeon_rewards[mlvl-1])
+        if mlvl > 20 then
+            return tostring(dungeon_rewards[#dungeon_rewards])
+        else
+            return tostring(dungeon_rewards[mlvl-1])
+        end
     end
 end
 
 
 function GetVaultReward(mlvl)
-    if mlvl > 20 then
-        return tostring(vault_rewards[#vault_rewards])
+    if mlvl == nil or mlvl < 2 then
+        return "Unknown Key Level"
     else
-        return tostring(vault_rewards[mlvl-1])
+        if mlvl > 20 then
+            return tostring(vault_rewards[#vault_rewards])
+        else
+            return tostring(vault_rewards[mlvl-1])
+        end
     end
 end
 
