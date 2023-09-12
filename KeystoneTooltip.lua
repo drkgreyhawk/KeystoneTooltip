@@ -44,11 +44,15 @@ local function OnTooltipSetItem(tooltip, ...)
         local item_string = GetItemString(item_link)
         local mlvl = GetKeyLevel(item_string)
         local ilvl = GetDungeonReward(mlvl)
+        local dtrack = GetDungeonRewardTrack(mlvl)
         local wlvl = GetVaultReward(mlvl)
+        local vtrack = GetVaultRewardTrack(mlvl)
 
         if not line_added then
             tooltip:AddLine(font_color .. dungeon_reward_string .. ilvl .. "|r")
+            tooltip:AddLine(font_color .. dungeon_reward_string .. dtrack .. "|r")
             tooltip:AddLine(font_color .. vault_reward_string .. wlvl .. "|r")
+            tooltip:AddLine(font_color .. vault_reward_string .. vtrack .. "|r")
             line_added = true
         end
     end
@@ -68,7 +72,9 @@ local function SetHyperlink_Hook(self, hyperlink, text, button)
         local wlvl = GetVaultReward(mlvl)
         local vtrack = GetVaultRewardTrack(mlvl)
         ItemRefTooltip:AddLine(font_color .. dungeon_reward_string .. ilvl .. "|r", 1, 1, 1, true)
+        ItemRefTooltip:AddLine(font_color .. dungeon_reward_string .. dtrack .. "|r", 1, 1, 1, true)
         ItemRefTooltip:AddLine(font_color .. vault_reward_string .. wlvl .. "|r", 1, 1, 1, true)
+        ItemRefTooltip:AddLine(font_color .. vault_reward_string .. vtrack .. "|r", 1, 1, 1, true)
         ItemRefTooltip:Show()
     end
 end
