@@ -2,15 +2,17 @@ local line_added = false
 local font_color = "|cffffffff"
 local dungeon_reward_string = "Dungeon Reward: "
 local vault_reward_string = "Vault Reward: "
-local dungeon_rewards = { 402, 405, 405, 408, 408, 411, 411, 415, 415, 418, 418, 421, 421, 424, 424, 428, 428, 431, 431 }
-local vault_rewards = { 415, 418, 421, 421, 424, 424, 428, 428, 431, 431, 434, 434, 437, 437, 441, 441, 444, 444, 447 }
+local dungeon_rewards = { 441, 444, 444, 447, 447, 450, 450, 454, 454, 457, 457, 460, 460, 463, 463, 467, 467, 470, 470 }
+local dungeon_reward_track = { "Veteran 1/8", "Veteran 2/8", "Veteran 2/8", "Veteran 3/8", "Veteran 3/8", "Veteran 4/8", "Veteran 4/8", "Champion 1/8", "Champion 1/8", "Champion 2/8", "Champion 2/8", "Champion 3/8", "Champion 3/8", "Champion 4/8", "Champion 4/8", "Hero 1/6", "Hero 1/6", "Hero 2/6", "Hero 2/6" }
+local vault_rewards = { 454, 457, 460, 460, 463, 463, 467, 467, 470, 470, 473, 473, 473, 476, 476, 476, 480, 480, 483 }
+local vault_reward_track = { "Champion 1/8", "Champion 2/8", "Champion 3/8", "Champion 3/8", "Champion 4/8", "Champion 4/8", "Hero 1/6", "Hero 1/6", "Hero 2/6", "Hero 2/6", "Hero 3/6", "Hero 3/6", "Hero 3/6", "Hero 4/6", "Hero 4/6", "Hero 4/6", "Myth 1/4", "Myth 1/4", "Myth 2/4" }
 
 
 SLASH_KEYSTONETOOLTIP1 = "/kt"
 
 SlashCmdList["KEYSTONETOOLTIP"] = function(msg)
-    print(dungeon_reward_string .. GetDungeonReward(tonumber(msg)))
-    print(vault_reward_string .. GetVaultReward(tonumber(msg)))
+    print(dungeon_reward_string .. GetDungeonReward(tonumber(msg)) .. " " .. dungeon_reward_track)
+    print(vault_reward_string .. GetVaultReward(tonumber(msg)) .. " " .. vault_reward_track)
 end
 
 
@@ -62,7 +64,9 @@ local function SetHyperlink_Hook(self, hyperlink, text, button)
     if strsplit(":", item_string) == "keystone" then
         local mlvl = GetKeyLevel(hyperlink)
         local ilvl = GetDungeonReward(mlvl)
-        local wlvl = GetVaultReward(mlvl)		
+        local dtrack = GetDungeonRewardTrack(mlvl)
+        local wlvl = GetVaultReward(mlvl)
+        local vtrack = GetVaultRewardTrack(mlvl)
         ItemRefTooltip:AddLine(font_color .. dungeon_reward_string .. ilvl .. "|r", 1, 1, 1, true)
         ItemRefTooltip:AddLine(font_color .. vault_reward_string .. wlvl .. "|r", 1, 1, 1, true)
         ItemRefTooltip:Show()
@@ -83,6 +87,19 @@ function GetDungeonReward(mlvl)
 end
 
 
+function GetDungeonRewardTrack(mlvl)
+    if mlvl == nil or mlvl < 2 then
+        return "Unknown Key Level"
+    else
+        if mlvl > 20 then
+            return dungeon_reward_track[#dungeon_reward_track]
+        else
+            return dungeon_reward_track[mlvl-1]
+        end
+    end
+end
+
+
 function GetVaultReward(mlvl)
     if mlvl == nil or mlvl < 2 then
         return "Unknown Key Level"
@@ -91,6 +108,19 @@ function GetVaultReward(mlvl)
             return tostring(vault_rewards[#vault_rewards])
         else
             return tostring(vault_rewards[mlvl-1])
+        end
+    end
+end
+
+
+function GetVaultRewardTrack(mlvl)
+    if mlvl == nil or mlvl < 2 then
+        return "Unknown Key Level"
+    else
+        if mlvl > 20 then
+            return vault_reward_track[#vault_reward_track])
+        else
+            return vault_reward_track[mlvl-1])
         end
     end
 end
