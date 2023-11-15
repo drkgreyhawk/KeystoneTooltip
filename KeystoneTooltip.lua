@@ -11,8 +11,8 @@ local vault_reward_track = { "Champion 1/8", "Champion 2/8", "Champion 3/8", "Ch
 SLASH_KEYSTONETOOLTIP1 = "/kt"
 
 SlashCmdList["KEYSTONETOOLTIP"] = function(msg)
-    print(dungeon_reward_string .. GetDungeonReward(tonumber(msg)) .. " " .. dungeon_reward_track)
-    print(vault_reward_string .. GetVaultReward(tonumber(msg)) .. " " .. vault_reward_track)
+    print(dungeon_reward_string .. GetDungeonReward(tonumber(msg)) .. ", " .. GetDungeonRewardTrack(tonumber(msg)))
+    print(vault_reward_string .. GetVaultReward(tonumber(msg)) .. ", " .. GetVaultRewardTrack(tonumber(msg)))
 end
 
 
@@ -49,10 +49,8 @@ local function OnTooltipSetItem(tooltip, ...)
         local vtrack = GetVaultRewardTrack(mlvl)
 
         if not line_added then
-            tooltip:AddLine(font_color .. dungeon_reward_string .. ilvl .. "|r")
-            tooltip:AddLine(font_color .. dungeon_reward_string .. dtrack .. "|r")
-            tooltip:AddLine(font_color .. vault_reward_string .. wlvl .. "|r")
-            tooltip:AddLine(font_color .. vault_reward_string .. vtrack .. "|r")
+            tooltip:AddLine(font_color .. dungeon_reward_string .. ilvl .. ", " .. dtrack .. "|r")
+            tooltip:AddLine(font_color .. vault_reward_string .. wlvl .. ", " .. vtrack .. "|r")
             line_added = true
         end
     end
@@ -71,10 +69,8 @@ local function SetHyperlink_Hook(self, hyperlink, text, button)
         local dtrack = GetDungeonRewardTrack(mlvl)
         local wlvl = GetVaultReward(mlvl)
         local vtrack = GetVaultRewardTrack(mlvl)
-        ItemRefTooltip:AddLine(font_color .. dungeon_reward_string .. ilvl .. "|r", 1, 1, 1, true)
-        ItemRefTooltip:AddLine(font_color .. dungeon_reward_string .. dtrack .. "|r", 1, 1, 1, true)
-        ItemRefTooltip:AddLine(font_color .. vault_reward_string .. wlvl .. "|r", 1, 1, 1, true)
-        ItemRefTooltip:AddLine(font_color .. vault_reward_string .. vtrack .. "|r", 1, 1, 1, true)
+        ItemRefTooltip:AddLine(font_color .. dungeon_reward_string .. ilvl .. ", " .. dtrack .. "|r", 1, 1, 1, true)
+        ItemRefTooltip:AddLine(font_color .. vault_reward_string .. wlvl .. ", " .. vtrack .. "|r", 1, 1, 1, true)
         ItemRefTooltip:Show()
     end
 end
@@ -98,9 +94,9 @@ function GetDungeonRewardTrack(mlvl)
         return "Unknown Key Level"
     else
         if mlvl > 20 then
-            return dungeon_reward_track([#dungeon_reward_track])
+            return dungeon_reward_track[#dungeon_reward_track]
         else
-            return dungeon_reward_track([mlvl-1])
+            return dungeon_reward_track[mlvl-1]
         end
     end
 end
@@ -124,9 +120,9 @@ function GetVaultRewardTrack(mlvl)
         return "Unknown Key Level"
     else
         if mlvl > 20 then
-            return vault_reward_track([#vault_reward_track])
+            return vault_reward_track[#vault_reward_track]
         else
-            return vault_reward_track([mlvl-1])
+            return vault_reward_track[mlvl-1]
         end
     end
 end

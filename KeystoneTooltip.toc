@@ -1,6 +1,6 @@
 ## Interface: 100200
 ## Title: Keystone Tooltip
-## Version: 3.3.1
+## Version: 3.3.2
 ## Notes: |cff00ff00Adds a tooltip with item level rewards for keystones.
 ## Author: DrkGreyHawk
 
