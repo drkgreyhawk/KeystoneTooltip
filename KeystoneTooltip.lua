@@ -98,9 +98,9 @@ function GetDungeonRewardTrack(mlvl)
         return "Unknown Key Level"
     else
         if mlvl > 20 then
-            return dungeon_reward_track[#dungeon_reward_track]
+            return dungeon_reward_track([#dungeon_reward_track])
         else
-            return dungeon_reward_track[mlvl-1]
+            return dungeon_reward_track([mlvl-1])
         end
     end
 end
@@ -124,9 +124,9 @@ function GetVaultRewardTrack(mlvl)
         return "Unknown Key Level"
     else
         if mlvl > 20 then
-            return vault_reward_track[#vault_reward_track])
+            return vault_reward_track([#vault_reward_track])
         else
-            return vault_reward_track[mlvl-1])
+            return vault_reward_track([mlvl-1])
         end
     end
 end
