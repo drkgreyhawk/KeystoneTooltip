@@ -2,10 +2,10 @@ local line_added = false
 local font_color = "|cffffffff"
 local dungeon_reward_string = "Dungeon Reward: "
 local vault_reward_string = "Vault Reward: "
-local dungeon_item_level_table = { 496, 499, 499, 502, 502, 506, 506, 509 }
-local dungeon_upgrade_track_table = { "Champion 2/8", "Champion 3/8", "Champion 3/8", "Champion 4/8", "Champion 4/8", "Hero 1/6", "Hero 1/6", "Hero 2/6"}
-local vault_item_reward_table = { 509, 509, 512, 512, 515, 515, 519, 519, 522 }
-local vault_upgrade_track_table = { "Hero 2/6", "Hero 2/6", "Hero 3/6", "Hero 3/6", "Hero 4/6", "Hero 4/6", "Myth 1/4", "Myth 1/4", "Myth 2/4" }
+local dungeon_item_level_table = { 597, 597, 600, 603, 606, 610, 610, 613 }
+local dungeon_upgrade_track_table = { "Champion 1", "Champion 1", "Champion 2", "Champion 3", "Champion 4", "Hero 1", "Hero 1", "Hero 2"}
+local vault_item_reward_table = { 606, 610, 610, 613, 613, 616, 619, 619, 623 }
+local vault_upgrade_track_table = { "Champion 4", "Hero 1", "Hero 1", "Hero 2", "Hero 2", "Hero 3", "Hero 4", "Hero 4", "Myth 1" }
 
 
 SLASH_KEYSTONETOOLTIP1 = "/kt"
