@@ -31,7 +31,7 @@ end
 
 
 local function GetKeyLevel(parent_string)
-    return tonumber(select(4, strsplit(":", parent_string)))
+    return tonumber(string.sub(select(4, strsplit(":", parent_string)), 1, 2))
 end
 
 
