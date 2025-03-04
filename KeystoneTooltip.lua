@@ -2,10 +2,10 @@ local line_added = false
 local font_color = "|cffffffff"
 local dungeon_reward_string = "Dungeon Reward: "
 local vault_reward_string = "Vault Reward: "
-local dungeon_item_level_table = { 597, 597, 600, 603, 606, 610, 610, 613 }
-local dungeon_upgrade_track_table = { "Champion 1", "Champion 1", "Champion 2", "Champion 3", "Champion 4", "Hero 1", "Hero 1", "Hero 2"}
-local vault_item_reward_table = { 606, 610, 610, 613, 613, 616, 619, 619, 623 }
-local vault_upgrade_track_table = { "Champion 4", "Hero 1", "Hero 1", "Hero 2", "Hero 2", "Hero 3", "Hero 4", "Hero 4", "Myth 1" }
+local dungeon_item_level_table = { 639, 639, 542, 645, 649, 649, 652, 652, 655 }
+local dungeon_upgrade_track_table = { "Champion 2", "Champion 2", "Champion 3", "Champion 4", "Hero 1", "Hero 1", "Hero 2", "Hero 2", "Hero 3"}
+local vault_item_reward_table = { 649, 649, 652, 652, 655, 658, 658, 658, 662 }
+local vault_upgrade_track_table = { "Hero 1", "Hero 1", "Hero 2", "Hero 2", "Hero 3", "Hero 4", "Hero 4", "Hero 4", "Myth 1" }
 
 
 SLASH_KEYSTONETOOLTIP1 = "/kt"
@@ -81,7 +81,7 @@ function GetDungeonReward(key_level)
         -- Key value outside of normal range, return err
         return "Unknown Key Level"
     else
-        if key_level > 9 then
+        if key_level > 10 then
             -- return the last element in the table
             return tostring(dungeon_item_level_table[#dungeon_item_level_table])
         else
@@ -97,7 +97,7 @@ function GetDungeonRewardTrack(key_level)
         -- Key value outside of normal range, return err
         return "Unknown Key Level"
     else
-        if key_level > 9 then
+        if key_level > 10 then
             -- return the last element in the table
             return dungeon_upgrade_track_table[#dungeon_upgrade_track_table]
         else
