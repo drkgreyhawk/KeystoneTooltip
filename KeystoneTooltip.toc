@@ -2,6 +2,19 @@
 ## Title: Keystone Tooltip
 ## Version: 3.6.0
 ## Notes: |cff00ff00Adds a tooltip with item level rewards for keystones.
+## Notes-ruRU: |cff00ff00Добавляет подсказку с наградами c уровнем предметов для ключей М+
 ## Author: DrkGreyHawk
+## IconTexture: 525134
+## Category-enUS: Mythic+ Dungeons
+## Category-deDE: Mythic+ Dungeons
+## Category-esES: Mythic+ Dungeons
+## Category-esMX: Mythic+ Dungeons
+## Category-frFR: Donjons Mythique+
+## Category-itIT: Mythic+ Dungeons
+## Category-koKR: Mythic+ Dungeons
+## Category-ptBR: Mythic+ Dungeons
+## Category-ruRU: Подземелья М+
+## Category-zhCN: Mythic+ Dungeons
+## Category-zhTW: Mythic+ Dungeons
 
 KeystoneTooltip.lua
